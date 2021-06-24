@@ -1,8 +1,11 @@
 # peluqueria
 
+### Useful django commands
+```bash
 # django-admin startproject peluqueria
 # python manage.py startapp account
 # python manage.py startapp appointment
+```
 
 ## Only for first time
 
