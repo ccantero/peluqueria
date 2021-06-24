@@ -1,0 +1,36 @@
+{% extends "appointment/appointment_base.html" %}
+{% load bootstrap4 %}
+{% block group_content %}
+
+	<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+	
+	<div class="col-md-6 order-md-1">
+		<form method="POST">
+			{% csrf_token %}
+			{% bootstrap_form form %}			
+
+			<input type="submit" class='btn btn-primary btn-large' value="Crear">
+			
+		</form>
+	</div>
+	
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!-- XDSoft DateTimePicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+<script>
+	  $(function () {
+		    $("#id_appointment_date").datetimepicker({
+		      format: 'd/m/Y H:i',
+		      minTime:'09:00',
+		      maxTime:'18:00',
+		    });
+  		});
+	
+	</script>
+
+{% endblock %}
