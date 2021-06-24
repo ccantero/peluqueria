@@ -6,9 +6,13 @@
 
 ## Only for first time
 python3 -m venv django-env
+
 cd django-env/
+
 source bin/activate
+
 pip install -r requirements.txt
+
 # Create a superuser
 python manage.py createsuperuser
 python manage.py migrate
