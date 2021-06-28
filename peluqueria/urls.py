@@ -25,5 +25,6 @@ urlpatterns = [
     path('',views.HomePage.as_view(),name='home'),
     path('test/',views.TestPage.as_view(),name='test'),
     path('create_appointment/',views_appointment.CreateAppointment.as_view(),name='create'),
+    path('list_appointment/',views_appointment.ListAppointment.as_view(),name='list'),
     path('thanks/',views.ThanksPage.as_view(),name='thanks'),
 ]

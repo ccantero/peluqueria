@@ -1,0 +1,14 @@
+{% extends "appointment/appointment_base.html" %}
+{% load bootstrap4 %}
+{% block group_content %}
+	<div class="col order-1">
+		<div class="list-budget">
+			{% for appointment in object_list %}
+				<div class="list-group-item list-group-item-action d-flex w-100 justify-content-between">
+			    	<h5 class="mb-1">{{ appointment.appointment_date }}</h5>
+			    </div> 
+			    <br>
+			{% endfor %}
+		</div>	
+	</div>
+{% endblock %}

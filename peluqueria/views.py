@@ -8,6 +8,3 @@ class ThanksPage(TemplateView):
 
 class HomePage(TemplateView):
 	template_name = 'index.html'
-
-class NewHomePage(TemplateView):
-	template_name = 'new_index.html'

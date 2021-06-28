@@ -4,14 +4,33 @@
 
 	<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
 	
-	<div class="col-md-6 order-md-1">
-		<form method="POST">
-			{% csrf_token %}
-			{% bootstrap_form form %}			
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 order-md-1">
+				<form method="POST">
+					{% csrf_token %}
+					{% bootstrap_form form %}			
 
-			<input type="submit" class='btn btn-primary btn-large' value="Crear">
-			
-		</form>
+					<input type="submit" class='btn btn-primary btn-large' value="Crear">
+					
+				</form>
+			</div>
+
+			<div class="col order-1">
+				<div class="container col-6">
+					<h4>Próximos turnos disponibles</h4>
+					<br>
+					<div class="list-group">
+						{% for appointment in free_appointments %}
+							<div class="list-group-item list-group-item-action d-flex w-100 justify-content-between">
+						    	<h5 class="mb-1">{{ appointment }}</h5>
+						    </div> 
+						    <br>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -22,7 +41,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
 
-<script>
+	<script>
 	  $(function () {
 		    $("#id_appointment_date").datetimepicker({
 		      format: 'd/m/Y H:i',
