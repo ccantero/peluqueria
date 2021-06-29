@@ -2,7 +2,7 @@ from django import forms
 
 from appointment.models import Appointment
 
-from datetime import datetime
+from django.utils import timezone
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
@@ -20,5 +20,10 @@ class AppointmentForm(forms.ModelForm):
 
         if len(list_of_appointments) > 0:
             raise forms.ValidationError("Ya hay un turno reservado")
+
+        start_time = timezone.now().replace(microsecond=0, second=0, minute=0)
+        if data < start_time:
+            raise forms.ValidationError("No puede solicitar un turno para esa fecha")
+
 
         return data

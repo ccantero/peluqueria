@@ -5,7 +5,8 @@
 		<div class="list-budget">
 			{% for appointment in object_list %}
 				<div class="list-group-item list-group-item-action d-flex w-100 justify-content-between">
-			    	<h5 class="mb-1">{{ appointment.appointment_date }}</h5>
+			    	<h5 class="mb-1">{{ appointment.user }}</h5>
+			    	<h5 class="mb-1">{{ appointment.appointment_date|date:'d/m/Y H:i' }}</h5>
 			    </div> 
 			    <br>
 			{% endfor %}

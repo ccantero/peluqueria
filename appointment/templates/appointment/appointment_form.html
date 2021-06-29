@@ -23,7 +23,7 @@
 					<div class="list-group">
 						{% for appointment in free_appointments %}
 							<div class="list-group-item list-group-item-action d-flex w-100 justify-content-between">
-						    	<h5 class="mb-1">{{ appointment }}</h5>
+						    	<h5 class="mb-1">{{ appointment|date:'d/m/Y H:i' }}</h5>
 						    </div> 
 						    <br>
 						{% endfor %}
@@ -42,13 +42,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
 
 	<script>
-	  $(function () {
+		$(function () {
 		    $("#id_appointment_date").datetimepicker({
 		      format: 'd/m/Y H:i',
 		      minTime:'09:00',
+		      step: 30,
 		      maxTime:'18:00',
 		    });
   		});
+
+		$('.list-group-item').on('click', function() {
+			console.log("Click!")
+			var $this = $(this);
+			var $children = $this.children('h5'); //get the appointment date
+
+			$('#id_appointment_date').val($children.text());
+
+			console.log($children.text())
+			console.log("$('#appointment_date').val($children.text());")
+		});
 	
 	</script>
 
